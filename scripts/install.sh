@@ -1,4 +1,4 @@
-ls
+ls /tmp
 cd /usr/src/app
 ls
 pwd
