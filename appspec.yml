@@ -5,15 +5,12 @@ files:
     destination: /usr/src/app
 hooks:
   BeforeInstall:
-    - location: pip install --no-cache-dir -r requirements.txt
+    - location: scripts/install.sh
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: cd /usr/src/app && gunicorn -c gunicorn_config.py flask-example:app 
+    - location: scripts/start.sh
       timeout: 300
       runas: root
-  ApplicationStop:
-    - location: scripts/stop_server.sh
-      timeout: 300
-      runas: root
+      
